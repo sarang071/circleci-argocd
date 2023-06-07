@@ -12,7 +12,3 @@ spec:
     repoURL: "https://github.com/Lucifergene/aks-nodejs-argocd"
     targetRevision: circleci-project-setup
   project: default
-  syncPolicy:
-    automated:
-      prune: false
-      selfHeal: false
