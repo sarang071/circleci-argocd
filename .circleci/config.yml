@@ -58,7 +58,7 @@ jobs:
           command: git pull origin $CIRCLE_BRANCH
       - azure-aks/update-kubeconfig-with-credentials:
           cluster-name: << parameters.cluster-name >>
-          install-kubectl: false
+          install-kubectl: true
           perform-login: true
           resource-group: << parameters.resource-group >>
       - kubernetes/create-or-update-resource:
