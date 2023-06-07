@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- deployment.yaml
+- service.yaml
+- namespace.yaml
+namespace: nodejs
+images:
+- name: aks-nodejs-argocd
+  newName: sarangp007/aks-nodejs-argocd
+  newTag: 69ef37c94611c1dfb520cb8a4c52b8f4c4f7caf2
