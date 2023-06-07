@@ -22,35 +22,35 @@ jobs:
         description: |
           Password for ArgoCD
         type: string
-  #   steps:
-  #     - run:
-  #         name: Install ArgoCD CLI
-  #         command: |
-  #           URL=https://<< parameters.server >>/download/argocd-linux-amd64
-  #           [ -w /usr/local/bin ] && SUDO="" || SUDO=sudo
-  #           $SUDO curl --insecure -sSL -o /usr/local/bin/argocd $URL
-  #           $SUDO chmod +x /usr/local/bin/argocd
-  #     - run:
-  #         name: ArgoCD CLI login
-  #         command: argocd login << parameters.server >> --insecure --username << parameters.username >> --password << parameters.password >>
-  #     - run:
-  #         name: Manual sync
-  #         command: argocd app sync $APP_NAME
-  #     - run:
-  #         name: Wait for application to reach a synced and healthy state
-  #         command: argocd app wait $APP_NAME
+    steps:
+      - run:
+          name: Install ArgoCD CLI
+          command: |
+            URL=https://<< parameters.server >>/download/argocd-linux-amd64
+            [ -w /usr/local/bin ] && SUDO="" || SUDO=sudo
+            $SUDO curl --insecure -sSL -o /usr/local/bin/argocd $URL
+            $SUDO chmod +x /usr/local/bin/argocd
+      - run:
+          name: ArgoCD CLI login
+          command: argocd login << parameters.server >> --insecure --username << parameters.username >> --password << parameters.password >>
+      - run:
+          name: Manual sync
+          command: argocd app sync $APP_NAME
+      - run:
+          name: Wait for application to reach a synced and healthy state
+          command: argocd app wait $APP_NAME
 
-  # argocd-configure:
-  #   executor: azure-aks/default
-  #   parameters:
-  #     cluster-name:
-  #       description: |
-  #         Name of the AKS cluster
-  #       type: string
-  #     resource-group:
-  #       description: |
-  #         Resource group that the cluster is in
-  #       type: string
+  argocd-configure:
+    executor: azure-aks/default
+    parameters:
+      cluster-name:
+        description: |
+          Name of the AKS cluster
+        type: string
+      resource-group:
+        description: |
+          Resource group that the cluster is in
+        type: string
     steps:
       - checkout
       - run:
