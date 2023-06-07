@@ -8,4 +8,4 @@ namespace: nodejs
 images:
 - name: aks-nodejs-argocd
   newName: sarangp007/aks-nodejs-argocd
-  newTag: a10a8fe4e90e9b9c90f71ad82f6d95d1ffe17ede
+  newTag: 0f3179eb2a4ee8c70bd526ae674df92c79f1c8eb
