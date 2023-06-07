@@ -9,6 +9,6 @@ spec:
     server: "https://kubernetes.default.svc"
   source:
     path: manifests
-    repoURL: "https://github.com/Lucifergene/aks-nodejs-argocd"
+    repoURL: "https://github.com/sarang071/circleci-argocd.git"
     targetRevision: circleci-project-setup
   project: default
